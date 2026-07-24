@@ -609,6 +609,53 @@ const About = () => {
         </div>
       </section>
 
+      {/* Leadership Profile Section */}
+      <section className="relative py-20 bg-white dark:bg-[#080e1a] overflow-hidden">
+        <div className="container-custom relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="md:w-1/3 flex justify-center"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-blue-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+                <img
+                  src="/images/gihanpc.png"
+                  alt="Mr. Gihan Lahiru"
+                  className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-blue-500/30 shadow-2xl relative z-10"
+                />
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="md:w-2/3 text-center md:text-left"
+            >
+              <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4">
+                Leadership Profile
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
+                Mr. Gihan Lahiru
+              </h2>
+              <h3 className="text-xl text-blue-600 font-semibold mb-6">
+                Head of IT Solutions
+              </h3>
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Leads HumanLens IT solutions with a focus on practical digital transformation, combining media insight with software delivery to build scalable, client-centered technology solutions.
+              </p>
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                A graduate of Uva Wellassa University with a BSc (Hons) in Computer Science and Technology, he is a technology enthusiast and professional known for strong work ethic and talent in adopting emerging technologies.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Organizational Structure */}
       <section className="relative py-24 lg:py-28 bg-[#080e1a] overflow-hidden">
         <Orb className="w-[500px] h-[500px] bg-blue-700 top-0 left-0" />
