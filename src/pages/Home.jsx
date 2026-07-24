@@ -561,25 +561,25 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
-                role: "CEO, TechStart Solutions",
-                comment: "Working with this team transformed our digital infrastructure. Their expertise in cloud migration saved us 40% in operational costs while improving our system reliability.",
+                name: "Mr. Maleesha Udantha",
+                role: "Tuition Project",
+                comment: "The educational platform HumanLens developed for our tuition center has completely transformed how we interact with students. It's user-friendly, reliable, and exactly what we needed to scale our classes.",
                 rating: 5,
-                image: "https://randomuser.me/api/portraits/women/44.jpg"
+                image: "https://ui-avatars.com/api/?name=Maleesha+Udantha&background=0D8ABC&color=fff"
               },
               {
-                name: "Michael Chen",
-                role: "CTO, InnovateCorp",
-                comment: "The custom software solution they developed exceeded our expectations. Professional, responsive, and truly understood our business needs. Highly recommend!",
+                name: "Mrs. Saraswathi",
+                role: "Meiyal Foundation",
+                comment: "Working with HumanLens on the Meiyal Foundation project was a wonderful experience. They perfectly understood our vision for a non-profit website and delivered a beautiful, responsive platform that helps us reach more people.",
                 rating: 5,
-                image: "https://randomuser.me/api/portraits/men/32.jpg"
+                image: "https://ui-avatars.com/api/?name=Saraswathi&background=0D8ABC&color=fff"
               },
               {
-                name: "Priya Sharma",
-                role: "Director, GrowthHub",
-                comment: "Their IT consulting services helped us streamline our processes and scale efficiently. The team's dedication and technical knowledge are outstanding.",
+                name: "Kamal Perera",
+                role: "Garage Project",
+                comment: "The custom website and system they built for my garage has streamlined our daily operations. Everything is now so much more professional and efficient. Highly recommended!",
                 rating: 5,
-                image: "https://randomuser.me/api/portraits/women/68.jpg"
+                image: "https://ui-avatars.com/api/?name=Kamal+Perera&background=0D8ABC&color=fff"
               }
             ].map((testimonial, idx) => (
               <motion.div
