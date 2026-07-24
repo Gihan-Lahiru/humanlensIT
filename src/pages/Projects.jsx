@@ -185,9 +185,9 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-white/20 flex flex-row"
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-white/20 flex flex-col md:flex-row"
               >
-                <div className="w-2/3 h-96 overflow-hidden flex-shrink-0 bg-gray-900 flex items-center justify-center">
+                <div className="w-full md:w-2/3 h-64 md:h-96 overflow-hidden flex-shrink-0 bg-gray-900 flex items-center justify-center">
                   {project.image ? (
                     <img
                       src={project.image}
@@ -199,7 +199,7 @@ const Projects = () => {
                   )}
                 </div>
 
-                <div className="w-1/3 p-6 h-96 flex flex-col overflow-y-auto">
+                <div className="w-full md:w-1/3 p-6 h-auto md:h-96 flex flex-col md:overflow-y-auto">
                   <p className="text-sm uppercase tracking-[0.2em] text-blue-400 mb-2">{project.category}</p>
                   <h2 className="text-2xl font-bold mb-4 text-white">{project.title}</h2>
                   <p className="text-slate-400 leading-relaxed mb-6">{project.description}</p>
