@@ -442,7 +442,7 @@ const Home = () => {
         <div className="container-custom relative z-10">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             {/* Left Side - Heading */}
-            <div className="md:w-1/3 flex flex-col items-start">
+            <div className="w-full md:w-1/3 flex flex-col items-start">
               <div className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 flex gap-4 items-center">
                 <span className="flex flex-col leading-none items-center font-bold">
                   <motion.span
@@ -482,14 +482,15 @@ const Home = () => {
             </div>
 
             {/* Right Side - Cards */}
-            <div className="md:w-2/3 grid md:grid-cols-2 gap-6">
+            <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {whyChooseUs.map((reason, idx) => (
                   <div
                     key={idx}
-                    className="relative h-64 cursor-pointer"
+                    className="relative h-72 md:h-64 cursor-pointer"
                     style={{ perspective: '1000px' }}
                     onMouseEnter={() => setFlippedCards(prev => ({ ...prev, [idx]: true }))}
                     onMouseLeave={() => setFlippedCards(prev => ({ ...prev, [idx]: false }))}
+                    onClick={() => setFlippedCards(prev => ({ ...prev, [idx]: !prev[idx] }))}
                   >
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
