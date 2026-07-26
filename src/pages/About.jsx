@@ -6,6 +6,17 @@ const Orb = ({ className }) => (
   <div className={`absolute rounded-full blur-3xl opacity-20 pointer-events-none ${className}`} />
 );
 
+const GridOverlay = () => (
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      backgroundImage:
+        'linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)',
+      backgroundSize: '60px 60px',
+    }}
+  />
+);
+
 const About = () => {
   const businessRationale = [
     {
@@ -199,57 +210,53 @@ const About = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="overflow-hidden">
       {/* Header */}
-      <section className="relative text-white py-16 min-h-[340px] md:min-h-[380px] flex items-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(2, 6, 23, 0.7), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1920&h=1080&fit=crop')",
-          }}
-        />
+      <section className="relative min-h-[420px] bg-[#080e1a] text-white flex items-center overflow-hidden pt-28 pb-16">
+        <Orb className="w-[600px] h-[600px] bg-blue-600 -top-40 -left-40" />
+        <Orb className="w-[400px] h-[400px] bg-purple-600 -bottom-20 -right-20" />
+        <Orb className="w-[300px] h-[300px] bg-cyan-500 top-20 right-1/3" />
+        <GridOverlay />
+
         <div className="container-custom text-center relative z-10">
           <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-blue-300 text-sm font-semibold tracking-widest uppercase mb-8 backdrop-blur-sm"
+          >
+            <Building2 className="w-4 h-4" />
+            A Division of HumanLens (Pvt) Ltd
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-extrabold leading-tight mb-6"
+          >
+            About{' '}
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+                HumanLens IT Solutions
+              </span>
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.9, delay: 0.6, ease: 'easeOut' }}
+                className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full origin-left"
+              />
+            </span>
+          </motion.h1>
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="text-xl text-slate-400 max-w-2xl mx-auto"
           >
-            <div className="text-sm font-medium mb-2 opacity-90">A Division of HumanLens (Pvt) Ltd</div>
-            <motion.h1
-              initial={{ opacity: 0, y: 16, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
-              whileHover={{ scale: 1.03 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight drop-shadow-lg text-white"
-            >
-              About{' '}
-              <motion.span
-                className="text-transparent"
-                animate={{
-                  WebkitTextStroke: [
-                    '2px rgba(59, 130, 246, 0.95)',
-                    '2px rgba(37, 99, 235, 0.95)',
-                    '2px rgba(6, 182, 212, 0.95)',
-                    '2px rgba(59, 130, 246, 0.95)',
-                  ],
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  WebkitTextFillColor: 'transparent',
-                  color: 'transparent',
-                  textShadow: 'none',
-                }}
-              >
-                HumanLens IT
-              </motion.span>{' '}
-              solutions
-            </motion.h1>
-            <p className="text-xl md:text-2xl text-white opacity-95 drop-shadow-lg">
-              Your Trusted Partner in Digital Transformation
-            </p>
-          </motion.div>
+            Your Trusted Partner in Digital Transformation
+          </motion.p>
         </div>
       </section>
 
@@ -508,63 +515,61 @@ const About = () => {
       </section>
 
       {/* Core Values Section */}
-      <section
-        className="py-14 bg-white bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(37, 99, 235, 0.34), rgba(29, 78, 216, 0.34)), url('/images/bkk.jpg')",
-        }}
-      >
-        <div className="container-custom">
-          <div className="text-center mb-8">
-            <motion.h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-              }}
-              transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-              style={{
-                backgroundImage: 'linear-gradient(90deg, #0f172a, #1d4ed8, #0891b2, #0f172a)',
-                backgroundSize: '200% 200%',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                color: 'transparent',
-              }}
-            >
+      <section className="relative py-24 overflow-hidden bg-black">
+        {/* Square grid background */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+        />
+        <Orb className="w-[500px] h-[500px] bg-blue-800 top-0 left-1/2 -translate-x-1/2" />
+        <Orb className="w-[300px] h-[300px] bg-purple-900 bottom-0 left-0" />
+        <Orb className="w-[300px] h-[300px] bg-cyan-900 bottom-0 right-0" />
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-4">
+              Our Culture
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3">
               Our Core Values
-            </motion.h2>
-            <p className="text-lg text-blue-900 font-semibold drop-shadow-sm">
+            </h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
               Principles that define our culture and guide our actions
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
-                className="flex flex-col items-center"
+                className="group relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-white/20 hover:shadow-2xl transition-all duration-300 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
+                <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+                
                 <motion.div
-                  whileHover={{ rotateY: 180, scale: 1.06 }}
+                  whileHover={{ rotateY: 180, scale: 1.05 }}
                   style={{
                     transformStyle: 'preserve-3d',
                     transition: 'transform 0.45s',
                     perspective: '1000px',
                   }}
-                  className="relative w-36 h-36 rounded-full cursor-pointer"
+                  className="relative w-32 h-32 rounded-full cursor-pointer mb-4"
                 >
                   <motion.div
                     className="absolute -inset-1 rounded-full blur-sm"
                     animate={{
                       background: [
-                        'linear-gradient(135deg, rgba(37,99,235,0.55), rgba(6,182,212,0.45))',
-                        'linear-gradient(135deg, rgba(14,165,233,0.55), rgba(59,130,246,0.45))',
-                        'linear-gradient(135deg, rgba(2,132,199,0.55), rgba(37,99,235,0.45))',
-                        'linear-gradient(135deg, rgba(37,99,235,0.55), rgba(6,182,212,0.45))',
+                        'linear-gradient(135deg, rgba(59,130,246,0.6), rgba(6,182,212,0.5))',
+                        'linear-gradient(135deg, rgba(14,165,233,0.6), rgba(59,130,246,0.5))',
+                        'linear-gradient(135deg, rgba(2,132,199,0.6), rgba(59,130,246,0.5))',
+                        'linear-gradient(135deg, rgba(59,130,246,0.6), rgba(6,182,212,0.5))',
                       ],
                     }}
                     transition={{ duration: 5, repeat: Infinity, ease: 'linear', delay: index * 0.2 }}
@@ -574,7 +579,7 @@ const About = () => {
                       backfaceVisibility: 'hidden',
                       WebkitBackfaceVisibility: 'hidden',
                     }}
-                    className="absolute inset-0 rounded-full overflow-hidden border-4 border-blue-700 shadow-xl"
+                    className="absolute inset-0 rounded-full overflow-hidden border-2 border-white/20 shadow-xl"
                   >
                     <img
                       src={value.image}
@@ -589,20 +594,20 @@ const About = () => {
                       WebkitBackfaceVisibility: 'hidden',
                       transform: 'rotateY(180deg)',
                     }}
-                    className="absolute inset-0 rounded-full border-4 border-blue-700 shadow-xl bg-gradient-to-br from-blue-700 to-cyan-700 text-white flex items-center justify-center p-5"
+                    className="absolute inset-0 rounded-full border-2 border-white/20 shadow-xl bg-gradient-to-br from-blue-600 to-cyan-600 text-white flex items-center justify-center p-4"
                   >
                     <p className="text-xs leading-relaxed text-center font-semibold">
                       {value.description}
                     </p>
                   </div>
                 </motion.div>
-                <motion.h3
-                  className="mt-2 text-lg font-semibold text-center"
-                  animate={{ color: ['#0f172a', '#1d4ed8', '#0891b2', '#0f172a'] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: index * 0.15 }}
-                >
+
+                <h3 className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors text-center">
                   {value.title}
-                </motion.h3>
+                </h3>
+                <p className="text-[11px] text-slate-400 mt-1">
+                  Hover circle for details
+                </p>
               </motion.div>
             ))}
           </div>
