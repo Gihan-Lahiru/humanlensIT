@@ -42,41 +42,6 @@ const projects = [
     liveUrl: 'https://www.learnwithmaleesha.com/',
     repoUrl: 'https://github.com/Gihan-Lahiru/tutionproject.git',
   },
-  {
-    title: 'RoutePro Tourism Platform',
-    category: 'Tourism Website',
-    description: 'A full-stack tourism platform providing listings, bookings, and itinerary planning for travel operators and tourists.',
-    results: [
-      'Responsive, attractive UI for travelers',
-      'Booking system with availability calendar',
-      'Backend admin dashboard to manage bookings and listings',
-      'Google Maps integration for locations and routes',
-      'Payment gateway integration (Stripe/PayPal)',
-      'User accounts, booking history, and notifications',
-      'REST API backend (Node.js/Express) with PostgreSQL',
-      'SEO friendly pages and analytics tracking',
-    ],
-    color: 'from-amber-500 to-rose-500',
-    image: '/images/routepro_project.png',
-  },
-  {
-    title: 'Garage Service Management System',
-    category: 'Business Management',
-    description: 'A comprehensive garage management platform for handling service bookings, inventory, invoicing and customer management.',
-    results: [
-      'Backend: Django, Django REST Framework, MySQL, JWT Authentication',
-      'Frontend: React, Node.js/npm, responsive UI',
-      'Service booking and scheduling system',
-      'Customer management and profiles',
-      'Inventory tracking for parts and supplies',
-      'Invoice generation and payment tracking',
-      'Staff management and role-based access',
-      'Service history and analytics dashboard',
-    ],
-    color: 'from-slate-500 to-gray-600',
-    image: '/images/garadge_project.png',
-    repoUrl: 'https://github.com/Jeyamathura/Garage_Service_Management_System.git',
-  },
 ];
 
 const Orb = ({ className }) => (

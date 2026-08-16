@@ -478,11 +478,10 @@ const Home = () => {
             <h2 className="text-4xl font-extrabold text-white mb-4">What Our Clients Say</h2>
             <p className="text-slate-400 text-lg">Don't just take our word for it — hear from businesses we've helped transform</p>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               { name: "Mr. Maleesha Udantha", role: "Tuition Project", comment: "The educational platform HumanLens developed for our tuition center has completely transformed how we interact with students. It's user-friendly, reliable, and exactly what we needed to scale our classes.", rating: 5, image: "https://ui-avatars.com/api/?name=Maleesha+Udantha&background=0D8ABC&color=fff" },
-              { name: "Mrs. Saraswathi", role: "Meiyal Foundation", comment: "Working with HumanLens on the Meiyal Foundation project was a wonderful experience. They perfectly understood our vision for a non-profit website and delivered a beautiful, responsive platform that helps us reach more people.", rating: 5, image: "https://ui-avatars.com/api/?name=Saraswathi&background=0D8ABC&color=fff" },
-              { name: "Kamal Perera", role: "Garage Project", comment: "The custom website and system they built for my garage has streamlined our daily operations. Everything is now so much more professional and efficient. Highly recommended!", rating: 5, image: "https://ui-avatars.com/api/?name=Kamal+Perera&background=0D8ABC&color=fff" }
+              { name: "Mrs. Saraswathi", role: "Meiyal Foundation", comment: "Working with HumanLens on the Meiyal Foundation project was a wonderful experience. They perfectly understood our vision for a non-profit website and delivered a beautiful, responsive platform that helps us reach more people.", rating: 5, image: "https://ui-avatars.com/api/?name=Saraswathi&background=0D8ABC&color=fff" }
             ].map((testimonial, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: idx * 0.1 }} whileHover={{ y: -6 }} className="group relative p-7 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-white/20 hover:shadow-2xl transition-all duration-300 overflow-hidden">
                 <div className="absolute top-0 left-7 right-7 h-px bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
