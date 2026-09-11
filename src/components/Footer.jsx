@@ -36,7 +36,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <img src="/images/HUMANLENS%20IT%20SOLUTIONS%20(3).png" alt="HumanLens Media Logo" className="w-auto" style={{ height: '60px' }} />
+              <img src="/images/background%20removed_black%20background.png" alt="HumanLens Media Logo" className="w-auto" style={{ height: '60px' }} />
             </div>
             <p className="text-slate-400 mb-2">
               A division of HumanLens  (Pvt) Ltd, delivering innovative IT solutions and cutting-edge technology services.
@@ -49,10 +49,10 @@ const Footer = () => {
                 <Phone className="w-4 h-4" />
                 <span className="text-sm">077 651 7595 / 071 442 8393</span>
               </div>
-              <div className="flex items-center space-x-2 text-slate-400">
+              <a href="mailto:humanlens.contact@gmail.com" className="flex items-center space-x-2 text-slate-400 hover:text-blue-400 transition-colors">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">info@humanlensmedia.com</span>
-              </div>
+                <span className="text-sm">humanlens.contact@gmail.com</span>
+              </a>
               <a href="https://maps.app.goo.gl/iqRbmY7BiWYnPZuHA" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-slate-400 hover:text-blue-400 transition-colors">
                 <MapPin className="w-4 h-4 flex-shrink-0" />
                 <span className="text-sm">3637+W8P, Eliot Rd, Galle 80000</span>

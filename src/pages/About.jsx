@@ -272,11 +272,11 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="order-1"
             >
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm max-w-xs sm:max-w-sm lg:max-w-md mx-auto">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-white/20 bg-white backdrop-blur-sm max-w-xs sm:max-w-sm lg:max-w-md mx-auto p-8 flex items-center justify-center">
                 <img
-                  src="/images/logo%20face.png"
+                  src="/images/our_background_logo.png"
                   alt="HumanLens IT solutions"
-                  className="w-full h-auto max-h-[320px] object-contain p-6"
+                  className="w-full h-auto max-h-[260px] object-contain"
                 />
               </div>
             </motion.div>

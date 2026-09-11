@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="flex items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center mr-auto">
-            <img src="/images/HUMANLENS%20IT%20SOLUTIONS%20(3).png" alt="HumanLens Media Logo" className="w-auto" style={{ height: '60px' }} />
+            <img src="/images/background%20removed_black%20background.png" alt="HumanLens Media Logo" className="w-auto" style={{ height: '60px' }} />
           </Link>
 
           {/* Desktop Navigation */}

@@ -41,7 +41,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: 'Email',
-    details: ['info@humanlensmedia.com', 'support@humanlensmedia.com'],
+    details: ['humanlens.contact@gmail.com'],
     gradient: 'from-purple-500 to-violet-500',
   },
   {

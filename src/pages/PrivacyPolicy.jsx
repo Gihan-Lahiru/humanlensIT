@@ -206,7 +206,7 @@ const PrivacyPolicy = () => {
             </p>
             <div className="space-y-2 text-slate-300">
               <p><strong>Company:</strong> HumanLens (Pvt) Ltd – IT Solutions Unit (Company Reg No: P V 00368572)</p>
-              <p><strong>Email:</strong> info@humanlensmedia.com</p>
+              <p><strong>Email:</strong> <a href="mailto:humanlens.contact@gmail.com" className="text-blue-400 hover:underline">humanlens.contact@gmail.com</a></p>
               <p><strong>Phone:</strong> 077 651 7595 / 071 442 8393</p>
               <p><strong>Address:</strong> 3637+W8P, Eliot Rd, Galle 80000, Sri Lanka</p>
             </div>
