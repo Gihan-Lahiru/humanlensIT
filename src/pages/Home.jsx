@@ -118,7 +118,7 @@ const Home = () => {
     { label: 'Target SME Clients', value: 50, suffix: '+' },
     { label: 'Large Organizations Goal', value: 10, suffix: '+' },
     { label: 'Service Excellence', value: 100, suffix: '%' },
-    { label: 'Local Expertise', value: '🇱🇰', emoji: '🇱🇰', isEmoji: true },
+    { label: 'International Standards', value: 'Global' },
   ];
 
   const services = [
@@ -249,15 +249,13 @@ const Home = () => {
                   className="text-center px-6 py-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
                 >
                   <div className="text-3xl font-black min-h-[36px] flex items-center justify-center">
-                    {stat.isEmoji ? (
-                      <span className="inline-block select-none leading-none">
-                        {stat.value || stat.emoji}
-                      </span>
-                    ) : (
-                      <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                      {typeof stat.value === 'number' ? (
                         <CountUp end={stat.value} suffix={stat.suffix} />
-                      </span>
-                    )}
+                      ) : (
+                        <span>{stat.value}{stat.suffix || ''}</span>
+                      )}
+                    </span>
                   </div>
                   <div className="text-xs text-slate-400 mt-0.5">{stat.label}</div>
                 </motion.div>
@@ -283,12 +281,10 @@ const Home = () => {
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <p className="text-3xl sm:text-4xl font-bold text-primary-600 mb-2 min-h-[40px] flex items-center justify-center">
-                  {stat.isEmoji ? (
-                    <span className="inline-block select-none leading-none">
-                      {stat.value || stat.emoji}
-                    </span>
-                  ) : (
+                  {typeof stat.value === 'number' ? (
                     <CountUp end={stat.value} suffix={stat.suffix} />
+                  ) : (
+                    <span>{stat.value}{stat.suffix || ''}</span>
                   )}
                 </p>
                 <p className="text-sm text-secondary-600">{stat.label}</p>
@@ -352,9 +348,9 @@ const Home = () => {
                 <div className="p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
                   <div className="flex items-center gap-2 text-cyan-400 font-bold mb-1">
                     <Award className="w-4 h-4" />
-                    <span>Local & Global</span>
+                    <span>International Standards</span>
                   </div>
-                  <p className="text-xs text-slate-400">Sri Lankan market understanding coupled with international modern technical standards.</p>
+                  <p className="text-xs text-slate-400">Enterprise engineering aligned with international technical standards and best practices.</p>
                 </div>
               </div>
 
