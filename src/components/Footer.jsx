@@ -22,9 +22,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61585160079288', label: 'Facebook' },
     { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/110529634/', label: 'LinkedIn' },
     { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: Github, href: '#', label: 'GitHub' },
   ];
@@ -102,8 +102,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={social.href !== '#' ? '_blank' : undefined}
+                  rel={social.href !== '#' ? 'noopener noreferrer' : undefined}
                   className="w-10 h-10 bg-white/10 hover:bg-blue-600 hover:text-white text-slate-400 rounded-lg flex items-center justify-center transition-colors"
                   aria-label={social.label}
                 >
