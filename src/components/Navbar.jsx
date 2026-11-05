@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
   const { isDark, toggleTheme } = useTheme();
   const location = useLocation();
 
@@ -14,20 +15,72 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // ScrollSpy when on homepage
+  useEffect(() => {
+    if (location.pathname !== '/') return;
+
+    const sections = ['hero', 'about', 'services', 'projects', 'contact'];
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 160;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && scrollPosition >= el.offsetTop) {
+          setActiveSection(sections[i]);
+          return;
+        }
+      }
+      setActiveSection('hero');
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/services', label: 'Services' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/strategy', label: 'Strategy' },
-    { path: '/contact', label: 'Contact' },
+    { label: 'Home', sectionId: 'hero', pagePath: '/' },
+    { label: 'About', sectionId: 'about', pagePath: '/about' },
+    { label: 'Services', sectionId: 'services', pagePath: '/services' },
+    { label: 'Projects', sectionId: 'projects', pagePath: '/projects' },
+    { label: 'Strategy', sectionId: null, pagePath: '/strategy' },
+    { label: 'Contact', sectionId: 'contact', pagePath: '/contact' },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const handleNavClick = (e, link) => {
+    if (link.sectionId) {
+      if (location.pathname === '/') {
+        e.preventDefault();
+        const el = document.getElementById(link.sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        setIsOpen(false);
+      } else {
+        setIsOpen(false);
+      }
+    } else {
+      setIsOpen(false);
+    }
+  };
+
+  const isLinkActive = (link) => {
+    if (location.pathname === '/') {
+      if (!link.sectionId) return false;
+      return activeSection === link.sectionId;
+    }
+    return location.pathname === link.pagePath;
+  };
+
+  const getLinkTo = (link) => {
+    if (!link.sectionId) return link.pagePath;
+    return location.pathname === '/' ? `#${link.sectionId}` : `/#${link.sectionId}`;
+  };
 
   return (
     <nav
@@ -40,7 +93,16 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center mr-auto">
+          <Link
+            to="/"
+            onClick={(e) => {
+              if (location.pathname === '/') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            className="flex items-center mr-auto"
+          >
             <img src="/images/background%20removed_black%20background.png" alt="HumanLens Media Logo" className="w-auto" style={{ height: '60px' }} />
           </Link>
 
@@ -48,19 +110,19 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
-                key={link.path}
-                to={link.path}
+                key={link.label}
+                to={getLinkTo(link)}
+                onClick={(e) => handleNavClick(e, link)}
                 className={`font-medium transition-all duration-300 ${
-                  isActive(link.path)
-                    ? 'text-blue-400'
+                  isLinkActive(link)
+                    ? 'text-blue-400 font-semibold'
                     : 'text-slate-300 hover:text-white'
                 }`}
-                aria-current={isActive(link.path) ? 'page' : undefined}
+                aria-current={isLinkActive(link) ? 'page' : undefined}
               >
                 {link.label}
               </Link>
             ))}
-
           </div>
 
           {/* Mobile Menu Button */}
@@ -95,20 +157,19 @@ const Navbar = () => {
             <div className="container-custom py-4 space-y-2">
               {navLinks.map((link) => (
                 <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
+                  key={link.label}
+                  to={getLinkTo(link)}
+                  onClick={(e) => handleNavClick(e, link)}
                   className={`block px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                    isActive(link.path)
+                    isLinkActive(link)
                       ? 'bg-blue-600 text-white shadow-md'
                       : 'text-slate-300 hover:bg-white/10 hover:text-white hover:translate-x-2'
                   }`}
-                  aria-current={isActive(link.path) ? 'page' : undefined}
+                  aria-current={isLinkActive(link) ? 'page' : undefined}
                 >
                   {link.label}
                 </Link>
               ))}
-
             </div>
           </motion.div>
         )}
