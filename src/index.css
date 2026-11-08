@@ -6,10 +6,14 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
     background-color: #080e1a;
+    overflow-x: hidden;
+    max-width: 100vw;
     @apply text-white transition-colors duration-300;
   }
   
@@ -91,7 +95,7 @@
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10;
   }
 
   .btn-primary {

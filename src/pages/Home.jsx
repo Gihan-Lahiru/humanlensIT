@@ -157,99 +157,104 @@ const Home = () => {
     <div>
 
       {/* ═══ HERO ═══ */}
-      <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20">
-        <Orb className="w-[700px] h-[700px] bg-blue-600 -top-60 -left-40" />
-        <Orb className="w-[500px] h-[500px] bg-purple-600 -bottom-32 -right-32" />
-        <Orb className="w-[350px] h-[350px] bg-cyan-500 top-24 right-1/3" />
+      <section id="hero" className="relative min-h-[calc(100vh-80px)] lg:min-h-screen flex items-center overflow-hidden pt-24 pb-12 lg:pt-28 lg:pb-16">
+        <Orb className="w-[700px] h-[700px] bg-blue-600/30 -top-60 -left-40" />
+        <Orb className="w-[500px] h-[500px] bg-purple-600/25 -bottom-32 -right-32" />
+        <Orb className="w-[400px] h-[400px] bg-cyan-500/20 top-24 right-1/4" />
         <GridOverlay />
 
-        <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-blue-300 text-sm font-semibold tracking-widest uppercase mb-8 backdrop-blur-sm"
-          >
-            <MapPin className="w-4 h-4" />
-            HumanLens IT Solutions
-          </motion.div>
+        <div className="container-custom relative z-10 w-full py-4 sm:py-6">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
+            
+            {/* Left Column: Headline, Description & CTA */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-blue-300 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 sm:mb-6 backdrop-blur-sm self-start"
+              >
+                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
+                HumanLens IT Solutions
+              </motion.div>
 
-          <div className="max-w-4xl">
-            <motion.h1
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.12] mb-5 tracking-tight text-white"
+              >
+                Transform Your Business{' '}
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+                    with Innovative
+                  </span>
+                  <motion.span
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.9, delay: 0.7, ease: 'easeOut' }}
+                    className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full origin-left"
+                  />
+                </span>{' '}
+                IT Solutions
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.25 }}
+                className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mb-8 leading-relaxed"
+              >
+                Leading IT solutions provider delivering comprehensive digital transformation —
+                from web development and mobile apps to custom software and IT consulting.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                <a
+                  href="#services"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 cursor-pointer text-base"
+                >
+                  Explore Our Services
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white font-semibold backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-base"
+                >
+                  Get Started
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Right Column: 4 Stat Cards in 2x2 grid */}
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-extrabold leading-tight mb-6"
-            >
-              Transform Your Business{' '}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
-                  with Innovative
-                </span>
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.9, delay: 0.7, ease: 'easeOut' }}
-                  className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full origin-left"
-                />
-              </span>{' '}
-              IT Solutions
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.25 }}
-              className="text-xl text-slate-400 max-w-2xl mb-10"
-            >
-              Leading IT solutions provider delivering comprehensive digital transformation —
-              from web development and mobile apps to custom software and IT consulting.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <a
-                href="#services"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 cursor-pointer"
-              >
-                Explore Our Services
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white font-semibold backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
-              >
-                Get Started
-              </a>
-            </motion.div>
-
-            {/* Quick stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.55 }}
-              className="flex flex-wrap gap-6 mt-14"
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="lg:col-span-5 grid grid-cols-2 gap-4 sm:gap-5"
             >
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
-                  whileHover={{ y: -4 }}
-                  className="text-center px-6 py-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  className="relative p-6 sm:p-7 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md hover:border-blue-500/40 hover:bg-white/[0.07] transition-all duration-300 flex flex-col justify-center items-center text-center shadow-xl group overflow-hidden"
                 >
-                  <div className="text-3xl font-black min-h-[36px] flex items-center justify-center">
-                    <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2 flex items-center justify-center min-h-[44px]">
+                    <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
                       {typeof stat.value === 'number' ? (
                         <CountUp end={stat.value} suffix={stat.suffix} />
                       ) : (
@@ -257,10 +262,13 @@ const Home = () => {
                       )}
                     </span>
                   </div>
-                  <div className="text-xs text-slate-400 mt-0.5">{stat.label}</div>
+                  <div className="text-xs sm:text-sm font-medium text-slate-300 leading-snug">
+                    {stat.label}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
+
           </div>
         </div>
       </section>
